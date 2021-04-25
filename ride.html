@@ -48,18 +48,18 @@
         <div class="form-popup" id="form">
             <form action="/action_page.php" class="form-container">
                 <label><b>Unicorn Name</b></label>
-                <input id="unicorn" type="text" placeholder="D'Artagnan" required>
+                <input id="unicornName" type="text" placeholder="D'Artagnan" required>
                 
                 <label><b>Color</b></label>
-                <input id="color" type="text" placeholder="Black" required>
+                <input id="unicornColor" type="text" placeholder="Black" required>
                 
-                <label for="gender" >Gender:</label>
-                <select id="gender" class="btn" type="button" data-toggle="dropdown">
+                <label>Gender:</label>
+                <select id="unicornGender" class="btn" type="button" data-toggle="dropdown">
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
                 </select>
                 
-                <button id="request" type="submit" class="btn btn-primary">Set pickup</button>
+                <button id="request" disabled="disabled" class="btn btn-primary" onclick="getName()">Set pickup</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
         </div>
@@ -70,7 +70,7 @@
                 let Ucolor = document.getElementById("color").value;
                 alert("unicorn : "+ Uname+" gender : "+ Ugender +" color : "+ Ucolor);
                 // Prevent reload page
-                //disabled="disabled"
+                //
                 e.preventDefault();
             }
             

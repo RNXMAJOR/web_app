@@ -13,6 +13,25 @@ function closeForm() {
     document.getElementById("form").style.display = "none";
 }
 
+
+function getName(){
+    let Uname = document.getElementById("unicornName").value;
+    let Ugender = document.getElementById("unicornGender").value;
+    let Ucolor = document.getElementById("unicornColor").value;
+    if (Uname === "") {
+        alert("NULL value here");
+    }else {
+        alert("unicorn : "+ Uname+" gender : "+ Ugender +" color : "+ Ucolor);
+    }
+    
+    
+    
+    
+    return {Uname, Ugender, Ucolor};
+}
+
+
+
 (function rideScopeWrapper($) {
     var authToken;
     WildRydes.authToken.then(function setAuthToken(token) {
@@ -38,7 +57,7 @@ function closeForm() {
                     Longitude: pickupLocation.longitude
                 },
                 
-                Unicorn: {
+                UnicornInfo: {
                     Uname: "Tarliquar",
                     Ucolor: "Black",
                     Ugender: "Female"
@@ -93,24 +112,23 @@ function closeForm() {
     
     function handlePickupChanged() {
         var requestButton = $('#request');
-        var uname = $("#gender").val();
-        var ucolor = $("#gender").val();
-        var ugender = $("#gender").val();
-        
-        if (uname == "") {
-            requestButton.text('Set Pickup');
-            requestButton.prop('disabled', true);
-        }else{
-            requestButton.text('Request Unicorn');
-            requestButton.prop('disabled', false);
-        }
-        
-        
+//        var uname = $("#gender").val();
+//        var ucolor = $("#gender").val();
+//        var ugender = $("#gender").val();
+        requestButton.text('Request Unicorn');
+        requestButton.prop('disabled', false);
     }
 
     function handleRequestClick(event) {
         var pickupLocation = WildRydes.map.selectedPoint;
         event.preventDefault();
+        var uname = getName().Uname;
+        if (uname === "") {
+            alert("We have a null string here");
+        }else {
+            alert("Unicorn : "+uname);
+        }
+        
         requestUnicorn(pickupLocation);
     }
 
