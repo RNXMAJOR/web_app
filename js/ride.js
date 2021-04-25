@@ -51,7 +51,7 @@ function getName(){
                     Latitude: pickupLocation.latitude,
                     Longitude: pickupLocation.longitude,
                     Uname: $('#unicornName').val(),
-                    Ucolor: $('#unicorColor').val(),
+                    Ucolor: $('#unicornColor').val(),
                     Ugender: $('#unicornGender').val()
                 },
                 
