@@ -46,14 +46,11 @@ function getName(){
             data: JSON.stringify({
                 PickupLocation: {
                     Latitude: pickupLocation.latitude,
-                    Longitude: pickupLocation.longitude
-                },
-                
-                UnicornInfo: {
+                    Longitude: pickupLocation.longitude,
                     Uname: "Tarliquar",
                     Ucolor: "Black",
                     Ugender: "Female"
-                }
+                },
                 
             }),
             contentType: 'application/json',
@@ -86,7 +83,8 @@ function getName(){
     
     // Register click handler for #request button
     $(function onDocReady() {
-        $('#request').click(handleRequestClick);
+        $('#form').onsubmit(handleRequestClick)
+        //$('#request').click(handleRequestClick);
         $(WildRydes.map).on('pickupChange', handlePickupChanged);
 
         WildRydes.authToken.then(function updateAuthMessage(token) {
@@ -104,20 +102,23 @@ function getName(){
     
     function handlePickupChanged() {
         var requestButton = $('#request');
-//        var uname = $("#gender").val();
-//        var ucolor = $("#gender").val();
-//        var ugender = $("#gender").val();
+        requestButton.text('Request Unicorn');
+        requestButton.prop('disabled', false); 
+    }
+    
+    function handleNameTag() {
+        var requestButton = $('#request');
         var uname = $('#unicornName').val();
         if (uname === "") {
-//            requestButton.prop('disabled', 'disabled');
-//            requestButton.text('Set Pickup');
+            requestButton.prop('disabled', 'disabled');
+            requestButton.text('Set Pickup');
         }else {
             requestButton.text('Request Unicorn');
-            requestButton.prop('disabled', false);
+            requestButton.prop('disabled', false); 
         }
-        
     }
-
+    
+    
     function handleRequestClick(event) {
         var pickupLocation = WildRydes.map.selectedPoint;
         event.preventDefault();
