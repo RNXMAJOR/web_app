@@ -69,6 +69,9 @@ function closeForm() {
             $('#request').prop('disabled', 'disabled');
             $('#request').text('Set Pickup');
         });
+        
+        var horseResting = document.getElementById("horseRest");
+        horseResting.play();
     }
     
     
@@ -137,10 +140,8 @@ function closeForm() {
             origin.longitude = WildRydes.map.extent.maxLng;
         }
         
-        var horseResting = document.getElementById("horseRest");
-        horseResting.play();
-        
-        WildRydes.map.animate(origin, dest, callback);
+        WildRydes.map.animate(origin, dest, callback)
+    
     }
 
     function displayUpdate(text) {
