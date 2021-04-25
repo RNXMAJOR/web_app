@@ -142,5 +142,7 @@ function closeForm() {
 
     function displayUpdate(text) {
         $('#updates').append($('<li>' + text + '</li>'));
+        var horseResting = document.getElementById("horseRest"); 
+        horseResting.play();
     }
 }(jQuery));
