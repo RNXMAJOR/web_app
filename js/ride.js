@@ -84,7 +84,7 @@ function closeForm() {
             $('#unicornColor').val('Black');
             
             
-            var horseWhining = document.getElementById("horse"); 
+            var horseWhining = document.getElementById("horseStart"); 
             horseWhining.play();
             
             e.preventDefault();
@@ -141,8 +141,6 @@ function closeForm() {
     }
 
     function displayUpdate(text) {
-        var annouce = document.getElementById("annoucement"); 
-        annouce.play();
         $('#updates').append($('<li>' + text + '</li>'));
     }
 }(jQuery));
