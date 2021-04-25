@@ -37,7 +37,7 @@ WildRydes.map = WildRydes.map || {};
             }
         });
     }
-
+    
     function completeRequest(result) {
         var unicorn;
         var pronoun;
@@ -69,7 +69,8 @@ WildRydes.map = WildRydes.map || {};
             $('#noApiMessage').show();
         }
     });
-
+    
+    
     function handlePickupChanged() {
         var requestButton = $('#request');
         requestButton.text('Request Unicorn');

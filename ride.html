@@ -22,7 +22,8 @@
 
     <div class="info panel panel-default">
         <div class="panel-heading">
-            <button id="request" class="btn btn-primary" disabled="disabled">Set pickup</button>
+                <button id="request" class="btn btn-primary" onclick="openForm()">Request Unicorn</button>
+                
             <div class="dropdown pull-right">
                 <button id="accountLink" class="btn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Account <span class="caret"></span>
@@ -32,7 +33,48 @@
                 </ul>
             </div>
         </div>
+        <style>
+            .form-popup {
+                display: none;
+                border: 3px solid #f1f1f1;
+                z-index: 9;
+            }
+            /* Add styles to the form container */
+            .form-container {
+                max-width: 200px;
+                padding: 10px;
+                background-color: white;
+            }
+        </style>
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <label><b>Unicorn Name</b></label>
+                <input id="unicorn" type="text" placeholder="D'Artagnan" required>
+                
+                <label><b>Color</b></label>
+                <input id="color" type="text" placeholder="Black" required>
+                
+                <label id="gender" for="gender" >Gender:</label>
+                <select class="btn" type="button" data-toggle="dropdown">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+                
+                <button id="request" class="btn btn-primary" disabled="disabled">Set pickup</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+        <script>
+            function openForm() {
+                document.getElementById("myForm").style.display = "block";
+            }
+            
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+            }
+        </script>
         <div class="panel-body">
+            
             <ol id="updates">
                 <li>Welcome! Click the map to set your pickup location.</li>
             </ol>
