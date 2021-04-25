@@ -136,13 +136,14 @@ function closeForm() {
         } else {
             origin.longitude = WildRydes.map.extent.maxLng;
         }
-
+        
+        var horseResting = document.getElementById("horseRest");
+        horseResting.play();
+        
         WildRydes.map.animate(origin, dest, callback);
     }
 
     function displayUpdate(text) {
         $('#updates').append($('<li>' + text + '</li>'));
-        var horseResting = document.getElementById("horseRest"); 
-        horseResting.play();
     }
 }(jQuery));
