@@ -4,29 +4,6 @@ var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 
 
-
-function openForm() {
-    $('#unicornName').val('');
-    $('#unicornGender').val('Female');
-    $('#unicornColor').val('');
-    document.getElementById("form").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("form").style.display = "none";
-}
-
-//we get the names on click
-function getName(){
-    let Uname = document.getElementById("unicornName").value;
-    let Ugender = document.getElementById("unicornGender").value;
-    let Ucolor = document.getElementById("unicornColor").value;
-    
-    return {Uname, Ugender, Ucolor};
-}
-
-
-
 (function rideScopeWrapper($) {
     var authToken;
     WildRydes.authToken.then(function setAuthToken(token) {
@@ -92,7 +69,7 @@ function getName(){
             
             $('#unicornName').val('');
             $('#unicornGender').val('Female');
-            $('#unicornColor').val('');
+            $('#unicornColor').val('Black');
             
             var x = document.getElementById("myAudio"); 
             x.play();
@@ -115,6 +92,16 @@ function getName(){
         }
     });
     
+    function openForm() {
+        document.getElementById("form").style.display = "block";
+    }
+    
+    function closeForm() {
+        $('#unicornName').val('');
+        $('#unicornGender').val('Female');
+        $('#unicornColor').val('Black');
+        document.getElementById("form").style.display = "none";
+    }
     
     function handlePickupChanged() {
         var requestButton = $('#request');
@@ -122,17 +109,7 @@ function getName(){
         requestButton.prop('disabled', false); 
     }
     
-    function handleNameTag() {
-        var requestButton = $('#request');
-        var uname = $('#unicornName').val();
-        if (uname === "") {
-            requestButton.prop('disabled', 'disabled');
-            requestButton.text('Set Pickup');
-        }else {
-            requestButton.text('Request Unicorn');
-            requestButton.prop('disabled', false); 
-        }
-    }
+    
     
     
     function handleRequestClick(event) {
