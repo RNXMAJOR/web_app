@@ -35,7 +35,7 @@
         </div>
         <style>
             .form-popup {
-                max-width: 300px;
+                max-width: inherit;
                 display: none;
                 border: 3px solid #f1f1f1;
                 z-index: 9;
@@ -48,16 +48,22 @@
         </style>
         <div class="form-popup" id="form">
             <form action="/action_page.php" class="form-container">
-                <label>Unicorn Name</label>
-                <input id="unicornName" type="text" placeholder="D'Artagnan" required>
-                <label><b>Color</b></label>
-                <input id="unicornColor" type="text" placeholder="Black" required>
+                <div class="form-group">
+                    <label>Unicorn Name:</label>
+                    <input id="unicornName" class="form-control" type="text" placeholder="D'Artagnan" required>
+                </div>
+                <div class="form-group">
+                    <label>Color:</label>
+                    <input id="unicornColor" class="form-control" type="text" placeholder="Black" required>
+                </div>
                 
-                <label>Gender:</label>
-                <select id="unicornGender" class="btn" type="button" data-toggle="dropdown">
-                    <option value="Female">Female</option>
-                    <option value="Male">Male</option>
-                </select>
+                <div class="form-group">
+                    <label >Gender:</label>
+                    <select id="unicornGender" class="form-control" type="button" data-toggle="dropdown">
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </div>
                 
                 <button id="request" class="btn btn-primary" type="submit" disabled="disabled">Set pickup</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -66,7 +72,7 @@
         <div class="panel-body">
             
             <ol id="updates">
-                <li>Welcome! Click the map to set your pickup location.</li>
+                <li>Welcome! Click the map to set your pickup location and insert your unicorn detail.</li>
             </ol>
         </div>
     </div>

@@ -47,9 +47,9 @@ function getName(){
                 PickupLocation: {
                     Latitude: pickupLocation.latitude,
                     Longitude: pickupLocation.longitude,
-                    Uname: "Tarliquar",
-                    Ucolor: "Black",
-                    Ugender: "Female"
+                    Uname: $('#unicornName').val(),
+                    Ucolor: $('#unicornName').val(),
+                    Ugender: $('#unicornName').val(),
                 },
                 
             }),
@@ -89,7 +89,7 @@ function getName(){
             
             $('#unicornName').val('');
             $('#unicornGender').val('');
-            $('#unicornColor').val('');
+            $('#unicornColor').val('Female');
             
             e.preventDefault();
         });
