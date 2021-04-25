@@ -68,10 +68,11 @@ function closeForm() {
             WildRydes.map.unsetLocation();
             $('#request').prop('disabled', 'disabled');
             $('#request').text('Set Pickup');
+            var horseResting = document.getElementById("horseRest");
+            horseResting.play();
         });
         
-        var horseResting = document.getElementById("horseRest");
-        horseResting.play();
+        
     }
     
     
