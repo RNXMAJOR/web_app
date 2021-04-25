@@ -6,6 +6,9 @@ WildRydes.map = WildRydes.map || {};
 
 
 function openForm() {
+    $('#unicornName').val('');
+    $('#unicornGender').val('Female');
+    $('#unicornColor').val('');
     document.getElementById("form").style.display = "block";
 }
 
@@ -48,8 +51,8 @@ function getName(){
                     Latitude: pickupLocation.latitude,
                     Longitude: pickupLocation.longitude,
                     Uname: $('#unicornName').val(),
-                    Ucolor: $('#unicornName').val(),
-                    Ugender: $('#unicornName').val(),
+                    Ucolor: $('#unicorColor').val(),
+                    Ugender: $('#unicornGender').val(),
                 },
                 
             }),
@@ -90,6 +93,9 @@ function getName(){
             $('#unicornName').val('');
             $('#unicornGender').val('');
             $('#unicornColor').val('Female');
+            
+            var x = document.getElementById("myAudio"); 
+            x.play();
             
             e.preventDefault();
         });
