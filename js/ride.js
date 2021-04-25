@@ -83,7 +83,7 @@ function getName(){
     
     // Register click handler for #request button
     $(function onDocReady() {
-        $('#form').onsubmit(handleRequestClick);
+        $('#form').submit(handleRequestClick);
         //$('#request').click(handleRequestClick);
         //$(WildRydes.map).on('pickupChange', handlePickupChanged);
 
@@ -121,8 +121,8 @@ function getName(){
     
     function handleRequestClick(event) {
         var pickupLocation = WildRydes.map.selectedPoint;
-        event.preventDefault();
         requestUnicorn(pickupLocation);
+        event.preventDefault();
     }
 
     function animateArrival(callback) {
