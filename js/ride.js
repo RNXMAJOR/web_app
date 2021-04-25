@@ -74,8 +74,8 @@ function getName(){
         animateArrival(function animateCallback() {
             displayUpdate(unicorn.Name + ' has arrived. Giddy up!');
             WildRydes.map.unsetLocation();
-//            $('#request').prop('disabled', 'disabled');
-//            $('#request').text('Set Pickup');
+            $('#request').prop('disabled', 'disabled');
+            $('#request').text('Set Pickup');
         });
     }
     
@@ -84,13 +84,13 @@ function getName(){
     // Register click handler for #request button
     $(function onDocReady() {
         $('#form').submit(function(e){
-            $('#request').click(handleRequestClick);
-            //prevent reload
+            var pickupLocation = WildRydes.map.selectedPoint;
+            requestUnicorn(pickupLocation);
             e.preventDefault();
         });
         
         //$('#request').click(handleRequestClick);
-        //$(WildRydes.map).on('pickupChange', handlePickupChanged);
+        $(WildRydes.map).on('pickupChange', handlePickupChanged);
 
         WildRydes.authToken.then(function updateAuthMessage(token) {
             if (token) {
