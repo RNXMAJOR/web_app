@@ -3,6 +3,16 @@
 var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 
+
+
+function openForm() {
+    document.getElementById("form").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("form").style.display = "none";
+}
+
 (function rideScopeWrapper($) {
     var authToken;
     WildRydes.authToken.then(function setAuthToken(token) {
@@ -26,7 +36,14 @@ WildRydes.map = WildRydes.map || {};
                 PickupLocation: {
                     Latitude: pickupLocation.latitude,
                     Longitude: pickupLocation.longitude
+                },
+                
+                Unicorn: {
+                    Uname: "Tarliquar",
+                    Ucolor: "Black",
+                    Ugender: "Female"
                 }
+                
             }),
             contentType: 'application/json',
             success: completeRequest,
@@ -37,6 +54,7 @@ WildRydes.map = WildRydes.map || {};
             }
         });
     }
+    
     
     function completeRequest(result) {
         var unicorn;
@@ -52,7 +70,9 @@ WildRydes.map = WildRydes.map || {};
             $('#request').text('Set Pickup');
         });
     }
-
+    
+    
+    
     // Register click handler for #request button
     $(function onDocReady() {
         $('#request').click(handleRequestClick);
@@ -73,8 +93,19 @@ WildRydes.map = WildRydes.map || {};
     
     function handlePickupChanged() {
         var requestButton = $('#request');
-        requestButton.text('Request Unicorn');
-        requestButton.prop('disabled', false);
+        var uname = $("#gender").val();
+        var ucolor = $("#gender").val();
+        var ugender = $("#gender").val();
+        
+        if (uname == "") {
+            requestButton.text('Set Pickup');
+            requestButton.prop('disabled', true);
+        }else{
+            requestButton.text('Request Unicorn');
+            requestButton.prop('disabled', false);
+        }
+        
+        
     }
 
     function handleRequestClick(event) {

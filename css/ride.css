@@ -28,10 +28,10 @@ html, body, #main, #map {
     width: 135px;
 }
 
-#request:disabled {
+/*#request:disabled {
     color: #999;
     border-color: #999;
-}
+}*/
 
 #accountLink {
     background: inherit;

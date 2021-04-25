@@ -41,12 +41,11 @@
             }
             /* Add styles to the form container */
             .form-container {
-                max-width: 200px;
                 padding: 10px;
                 background-color: white;
             }
         </style>
-        <div class="form-popup" id="myForm">
+        <div class="form-popup" id="form">
             <form action="/action_page.php" class="form-container">
                 <label><b>Unicorn Name</b></label>
                 <input id="unicorn" type="text" placeholder="D'Artagnan" required>
@@ -54,24 +53,27 @@
                 <label><b>Color</b></label>
                 <input id="color" type="text" placeholder="Black" required>
                 
-                <label id="gender" for="gender" >Gender:</label>
-                <select class="btn" type="button" data-toggle="dropdown">
+                <label for="gender" >Gender:</label>
+                <select id="gender" class="btn" type="button" data-toggle="dropdown">
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
                 </select>
                 
-                <button id="request" class="btn btn-primary" disabled="disabled">Set pickup</button>
+                <button id="request" type="submit" class="btn btn-primary">Set pickup</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
         </div>
         <script>
-            function openForm() {
-                document.getElementById("myForm").style.display = "block";
+            document.getElementById("form").onsubmit = function(e){
+                let Uname = document.getElementById("unicorn").value;
+                let Ugender = document.getElementById("gender").value;
+                let Ucolor = document.getElementById("color").value;
+                alert("unicorn : "+ Uname+" gender : "+ Ugender +" color : "+ Ucolor);
+                // Prevent reload page
+                //disabled="disabled"
+                e.preventDefault();
             }
             
-            function closeForm() {
-                document.getElementById("myForm").style.display = "none";
-            }
         </script>
         <div class="panel-body">
             
