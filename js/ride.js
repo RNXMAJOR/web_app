@@ -83,7 +83,7 @@ function getName(){
     
     // Register click handler for #request button
     $(function onDocReady() {
-        $('#form').onsubmit(handlePickupChanged);
+        $('#form').onsubmit(handleRequestClick);
         //$('#request').click(handleRequestClick);
         //$(WildRydes.map).on('pickupChange', handlePickupChanged);
 
