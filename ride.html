@@ -35,6 +35,7 @@
         </div>
         <style>
             .form-popup {
+                max-width: 300px;
                 display: none;
                 border: 3px solid #f1f1f1;
                 z-index: 9;
@@ -47,9 +48,8 @@
         </style>
         <div class="form-popup" id="form">
             <form action="/action_page.php" class="form-container">
-                <label><b>Unicorn Name</b></label>
+                <label>Unicorn Name</label>
                 <input id="unicornName" type="text" placeholder="D'Artagnan" required>
-                
                 <label><b>Color</b></label>
                 <input id="unicornColor" type="text" placeholder="Black" required>
                 
@@ -63,18 +63,6 @@
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
         </div>
-        <script>
-            document.getElementById("form").onsubmit = function(e){
-                let Uname = document.getElementById("unicorn").value;
-                let Ugender = document.getElementById("gender").value;
-                let Ucolor = document.getElementById("color").value;
-                alert("unicorn : "+ Uname+" gender : "+ Ugender +" color : "+ Ucolor);
-                // Prevent reload page
-                //
-                e.preventDefault();
-            }
-            
-        </script>
         <div class="panel-body">
             
             <ol id="updates">

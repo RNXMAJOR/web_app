@@ -13,19 +13,11 @@ function closeForm() {
     document.getElementById("form").style.display = "none";
 }
 
-
+//we get the names on click
 function getName(){
     let Uname = document.getElementById("unicornName").value;
     let Ugender = document.getElementById("unicornGender").value;
     let Ucolor = document.getElementById("unicornColor").value;
-    if (Uname === "") {
-        alert("NULL value here");
-    }else {
-        alert("unicorn : "+ Uname+" gender : "+ Ugender +" color : "+ Ucolor);
-    }
-    
-    
-    
     
     return {Uname, Ugender, Ucolor};
 }
@@ -115,20 +107,20 @@ function getName(){
 //        var uname = $("#gender").val();
 //        var ucolor = $("#gender").val();
 //        var ugender = $("#gender").val();
-        requestButton.text('Request Unicorn');
-        requestButton.prop('disabled', false);
+        var uname = $('#unicornName').val();
+        if (uname === "") {
+//            requestButton.prop('disabled', 'disabled');
+//            requestButton.text('Set Pickup');
+        }else {
+            requestButton.text('Request Unicorn');
+            requestButton.prop('disabled', false);
+        }
+        
     }
 
     function handleRequestClick(event) {
         var pickupLocation = WildRydes.map.selectedPoint;
         event.preventDefault();
-        var uname = getName().Uname;
-        if (uname === "") {
-            alert("We have a null string here");
-        }else {
-            alert("Unicorn : "+uname);
-        }
-        
         requestUnicorn(pickupLocation);
     }
 
