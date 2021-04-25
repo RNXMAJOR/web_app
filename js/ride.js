@@ -7,6 +7,7 @@ function openForm() {
     document.getElementById("form").style.display = "block";
 }
 
+
 function closeForm() {
     $('#unicornName').val('');
     $('#unicornGender').val('Female');
@@ -82,8 +83,9 @@ function closeForm() {
             $('#unicornGender').val('Female');
             $('#unicornColor').val('Black');
             
-            var x = document.getElementById("myAudio"); 
-            x.play();
+            
+            var horseWhining = document.getElementById("horse"); 
+            horseWhining.play();
             
             e.preventDefault();
         });
@@ -139,6 +141,8 @@ function closeForm() {
     }
 
     function displayUpdate(text) {
+        var annouce = document.getElementById("annoucement"); 
+        annouce.play();
         $('#updates').append($('<li>' + text + '</li>'));
     }
 }(jQuery));
