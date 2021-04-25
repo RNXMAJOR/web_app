@@ -3,6 +3,17 @@
 var WildRydes = window.WildRydes || {};
 WildRydes.map = WildRydes.map || {};
 
+function openForm() {
+    document.getElementById("form").style.display = "block";
+}
+
+function closeForm() {
+    $('#unicornName').val('');
+    $('#unicornGender').val('Female');
+    $('#unicornColor').val('Black');
+    document.getElementById("form").style.display = "none";
+}
+
 
 (function rideScopeWrapper($) {
     var authToken;
@@ -92,16 +103,6 @@ WildRydes.map = WildRydes.map || {};
         }
     });
     
-    function openForm() {
-        document.getElementById("form").style.display = "block";
-    }
-    
-    function closeForm() {
-        $('#unicornName').val('');
-        $('#unicornGender').val('Female');
-        $('#unicornColor').val('Black');
-        document.getElementById("form").style.display = "none";
-    }
     
     function handlePickupChanged() {
         var requestButton = $('#request');
