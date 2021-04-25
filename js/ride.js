@@ -86,6 +86,11 @@ function getName(){
         $('#form').submit(function(e){
             var pickupLocation = WildRydes.map.selectedPoint;
             requestUnicorn(pickupLocation);
+            
+            $('#unicornName').val('');
+            $('#unicornGender').val('');
+            $('#unicornColor').val('');
+            
             e.preventDefault();
         });
         
