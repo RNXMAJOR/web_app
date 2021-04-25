@@ -52,7 +52,7 @@ function getName(){
                     Longitude: pickupLocation.longitude,
                     Uname: $('#unicornName').val(),
                     Ucolor: $('#unicorColor').val(),
-                    Ugender: $('#unicornGender').val(),
+                    Ugender: $('#unicornGender').val()
                 },
                 
             }),
@@ -91,8 +91,8 @@ function getName(){
             requestUnicorn(pickupLocation);
             
             $('#unicornName').val('');
-            $('#unicornGender').val('');
-            $('#unicornColor').val('Female');
+            $('#unicornGender').val('Female');
+            $('#unicornColor').val('');
             
             var x = document.getElementById("myAudio"); 
             x.play();
